@@ -8,7 +8,7 @@
 
 
 ## Структура решения в Visual Studio
-<pre> ```
+<pre> 
 /Solution
 ├─ /ExcelLoaderWithEPPlus # C#-подпроект
 │ └─ Program.cs (ExcelLoaderWithEPPlus.cs)
@@ -17,7 +17,7 @@
 │ └─ etl_movies.py
 │
 └─ README.md # Документация (этот файл)
-``` </pre>
+ </pre>
 
 ## Подпроект 1: Загрузка данных (C#)
 ### Требования
@@ -34,9 +34,9 @@
 
 ### Настройка
 1️) Путь к папке с Excel-файлами:
-	<pre> ``` string folderPath = @"C:\Users\yersu\Desktop\Для интервью\Тех Задание"; ``` </pre>
+	<pre> string folderPath = @"C:\Users\yersu\Desktop\Для интервью\Тех Задание";  </pre>
 2) Строка подключения:
-	 <pre> ``` string connectionStringMaster = "Server=localhost;Database=master;Trusted_Connection=True;TrustServerCertificate=True;"; ``` </pre>
+	 <pre> string connectionStringMaster = "Server=localhost;Database=master;Trusted_Connection=True;TrustServerCertificate=True;";  </pre>
 
 ### Запуск
 - Откройте проект в Visual Studio.
@@ -78,9 +78,9 @@
 
 ### Настройка
 1. Установи зависимости:
-   <pre> ``` pip install pandas sqlalchemy matplotlib pyodbc seaborn ``` </pre>
+   <pre> pip install pandas sqlalchemy matplotlib pyodbc seaborn </pre>
 2. Строка подключения к БД:
-   <pre> ``` connection_string = "mssql+pyodbc://localhost/ExcelDataDB?driver=ODBC+Driver+17+for+SQL+Server" ``` </pre>
+   <pre> connection_string = "mssql+pyodbc://localhost/ExcelDataDB?driver=ODBC+Driver+17+for+SQL+Server" </pre>
 
 ### Запуск
 1. Запустите скрипт в терминале:
