@@ -5,8 +5,6 @@ import seaborn as sns
 from matplotlib.backends.backend_pdf import PdfPages
 
 
-# Подключение к SQL Server (пример)
-# Убедись, что установлен ODBC Driver 17 (или другой)
 engine = create_engine(
     "mssql+pyodbc://localhost/ExcelDataDB?"
     "driver=ODBC+Driver+17+for+SQL+Server&"
@@ -78,12 +76,12 @@ type_distribution = (film_work.groupby('type')
                       .sort_values(by='count', ascending=False))
 
 
-films_by_year.to_csv('films_by_year.csv', index=False)
-avg_rating_by_year.to_csv('avg_rating_by_year.csv', index=False)
-genre_stats.to_csv('genre_stats.csv', index=False)
-role_distribution.to_csv('role_distribution.csv', index=False)
-actor_top10.to_csv('actor_top10.csv', index=False)
-type_distribution.to_csv('type_distribution.csv', index=False)
+films_by_year.to_csv('data/films_by_year.csv', index=False)
+avg_rating_by_year.to_csv('data/avg_rating_by_year.csv', index=False)
+genre_stats.to_csv('data/genre_stats.csv', index=False)
+role_distribution.to_csv('data/role_distribution.csv', index=False)
+actor_top10.to_csv('data/actor_top10.csv', index=False)
+type_distribution.to_csv('data/type_distribution.csv', index=False)
 
 
 sns.set(style="whitegrid")
@@ -96,7 +94,7 @@ plt.xlabel('Год')
 plt.ylabel('Количество')
 plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig('films_by_year.png')
+plt.savefig('data/films_by_year.png')
 plt.close()
 
 
@@ -107,7 +105,7 @@ plt.xlabel('Год')
 plt.ylabel('Средняя оценка')
 plt.xticks(rotation=45)
 plt.tight_layout()
-plt.savefig('avg_rating_by_year.png')
+plt.savefig('data/avg_rating_by_year.png')
 plt.close()
 
 plt.figure(figsize=(10,5))
@@ -116,7 +114,7 @@ plt.title('Топ-10 жанров')
 plt.xlabel('Количество фильмов')
 plt.ylabel('Жанр')
 plt.tight_layout()
-plt.savefig('top_genres.png')
+plt.savefig('data/top_genres.png')
 plt.close()
 
 plt.figure(figsize=(8,5))
@@ -125,7 +123,7 @@ plt.title('Распределение ролей')
 plt.xlabel('Роль')
 plt.ylabel('Количество')
 plt.tight_layout()
-plt.savefig('role_distribution.png')
+plt.savefig('data/role_distribution.png')
 plt.close()
 
 plt.figure(figsize=(10,5))
@@ -134,7 +132,7 @@ plt.title('Топ-10 актёров')
 plt.xlabel('Количество фильмов')
 plt.ylabel('Актёр')
 plt.tight_layout()
-plt.savefig('actor_top10.png')
+plt.savefig('data/actor_top10.png')
 plt.close()
 
 
@@ -144,7 +142,7 @@ plt.title('Гистограмма рейтингов')
 plt.xlabel('Рейтинг')
 plt.ylabel('Количество')
 plt.tight_layout()
-plt.savefig('rating_histogram.png')
+plt.savefig('data/rating_histogram.png')
 plt.close()
 
 plt.figure(figsize=(8,5))
@@ -153,7 +151,7 @@ plt.title('Распределение по типу')
 plt.xlabel('Тип')
 plt.ylabel('Количество')
 plt.tight_layout()
-plt.savefig('type_distribution.png')
+plt.savefig('data/type_distribution.png')
 plt.close()
 
 print("Успешно завершено!")

@@ -66,13 +66,13 @@ class ExcelLoaderWithEPPlus
             int colCount = worksheet.Dimension.End.Column;
             int rowCount = worksheet.Dimension.End.Row;
 
-            // Заголовки
+            
             for (int col = 1; col <= colCount; col++)
             {
                 dataTable.Columns.Add(worksheet.Cells[1, col].Text);
             }
 
-            // Данные
+      
             for (int row = 2; row <= rowCount; row++)
             {
                 var newRow = dataTable.NewRow();
