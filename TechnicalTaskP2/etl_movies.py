@@ -12,14 +12,14 @@ engine = create_engine(
     "TrustServerCertificate=yes"
 )
 
-
+print("Шаг 1")
 film_work = pd.read_sql('SELECT * FROM content_film_work', engine)
 genre = pd.read_sql('SELECT * FROM content_genre', engine)
 genre_film_work = pd.read_sql('SELECT * FROM content_genre_film_work', engine)
 person = pd.read_sql('SELECT * FROM content_person', engine)
 person_film_work = pd.read_sql('SELECT * FROM content_person_film_work', engine)
 
-
+print("Шаг 1.5")
 film_work['created'] = pd.to_datetime(film_work['created'], errors='coerce')
 film_work['creation_date'] = pd.to_datetime(film_work['creation_date'], errors='coerce')
 
@@ -35,7 +35,7 @@ genre_film_work = genre_film_work.drop_duplicates(subset=['film_work_id', 'genre
 person_film_work = person_film_work.drop_duplicates(subset=['film_work_id', 'person_id', 'role'])
 
 
-
+print("Шаг 2")
 film_genre_df = (film_work
                   .merge(genre_film_work, left_on='id', right_on='film_work_id', how='left')
                   .merge(genre, left_on='genre_id', right_on='id', suffixes=('', '_genre')))
@@ -85,7 +85,7 @@ type_distribution.to_csv('data/type_distribution.csv', index=False)
 
 
 sns.set(style="whitegrid")
-
+print("Шаг 3")
 
 plt.figure(figsize=(10,5))
 sns.barplot(x='creation_date', y='count', data=films_by_year, palette='viridis')
